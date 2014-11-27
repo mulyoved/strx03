@@ -1,0 +1,95 @@
+<polymer-element name="home-page">
+  <template>
+    <link rel="stylesheet" href="home-page.css">
+
+    <strx-toolbar  selected="decks">
+      <div class="title" horizontal justified layout center>
+        <div>
+          Styrax
+        </div>
+        <div>
+          <paper-icon-button
+            id="user-thumbnails"
+            class="header-thumbnails header-user-thumbnails"
+            on-click="{{goProfile}}"
+            icon="perm-identity">
+          </paper-icon-button>
+          <paper-icon-button
+            id="search-icon"
+            class="header-thumbnails header-user-thumbnails"
+            icon="strx:search">
+          </paper-icon-button>
+        </div>
+      </div>
+
+      <!-- src="https://yt3.ggpht.com/-h5E7sPdfBFg/AAAAAAAAAAI/AAAAAAAAAAA/m6ox7-1V_lU/s88-c-k-no/photo.jpg"> -->
+
+      <!--
+
+<paper-icon-button id="user-thumbnails" class="header-user-thumbnails"
+                             src="https://yt3.ggpht.com/-5JMjG8tTD-g/AAAAAAAAAAI/AAAAAAAAAAA/0AN4WoC-xR8/s88-c-k-no/photo.jpg">
+          </paper-icon-button>
+      -->
+
+        <paper-tabs id="tabs" class="transparent" role="tablist" selected="0" horizontal center layout>
+          <!-- <paper-tab>LEAD</paper-tab> -->
+          <paper-tab>TOP</paper-tab>
+          <paper-tab>TREND</paper-tab>
+          <paper-tab>DECK</paper-tab>
+          <!-- <paper-tab>SEARCH</paper-tab> -->
+        </paper-tabs>
+
+        <core-animated-pages id="pages" transitions="hero-transition cross-fade" selected="0">
+          <section>
+            <div cross-fade id="1">
+              <deck-buttons id="topDeck" cards="topData"></deck-buttons>
+            </div>
+          </section>
+          <section>
+            <div cross-fade id="2">
+              <deck-buttons id="trendDeck" cards="trendData"></deck-buttons>
+            </div>
+          </section>
+          <section>
+            <div cross-fade id="3">
+              <deck-buttons id="myDeck" cards="myDeckData"></deck-buttons>
+            </div>
+          </section>
+          <section>
+            <div cross-fadeid="4">
+              <div style="height:100%" horizontal layout>
+                <h1 flex self-end style="text-align: center">TBD</h1>
+              </div>
+            </div>
+          </section>
+        </core-animated-pages>
+    </strx-toolbar>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        // define element prototype here
+        ready: function () {
+          var pages = this.$.pages;
+          var tabs = this.$.tabs;
+          tabs.addEventListener('core-select', function() {
+            //console.log(pages.selected, tabs.selected);
+            pages.selected = tabs.selected;
+          });
+        },
+        domReady: function() {
+          console.log('dom ready');
+        },
+
+        goProfile: function() {
+          console.log('goProfile');
+          document.routerGo({ path: 'profile'});
+        }
+    });
+
+    })();
+  </script>
+</polymer-element>

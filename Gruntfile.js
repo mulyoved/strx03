@@ -92,7 +92,7 @@ module.exports = function (grunt) {
     },
     autoprefixer: {
       options: {
-        browsers: ['last 2 versions']
+        browsers: ['Chrome 30']
       },
       server: {
         files: [{
@@ -239,6 +239,8 @@ module.exports = function (grunt) {
             'elements/**',
             '!elements/**/*.scss',
             'images/{,*/}*.{webp,gif}',
+            'data/**',
+            'scripts/**',
             'bower_components/**'
           ]
         }]
@@ -250,6 +252,15 @@ module.exports = function (grunt) {
           dest: '.tmp',
           src: ['{styles,elements}/{,*/}*.css']
         }]
+      },
+      cordova: {
+        expand: true,
+        dot: true,
+        cwd: '<%= yeoman.dist %>',
+        dest: 'D:/js/strx/strx02/www',
+        src: [
+          '**'
+        ]
       }
     },
     // See this tutorial if you'd like to run PageSpeed
@@ -269,6 +280,16 @@ module.exports = function (grunt) {
           locale: "en_GB",
           strategy: "mobile",
           threshold: 80
+        }
+      }
+    },
+    shell: {
+      androidbuild: {
+        command: 'cordova build android',
+        options: {
+          execOptions: {
+            cwd: 'd:/js/strx/strx02'
+          }
         }
       }
     }
@@ -308,10 +329,12 @@ module.exports = function (grunt) {
     'imagemin',
     'concat',
     'autoprefixer',
-    'uglify',
+    //'uglify',
     'vulcanize',
-    'usemin',
-    'minifyHtml'
+    //'usemin',
+    //'minifyHtml',
+    'copy:cordova',
+    'shell:androidbuild'
   ]);
 
   grunt.registerTask('default', [

@@ -1,0 +1,30 @@
+@import '../../styles/common';
+
+:host {
+  display: block;
+}
+
+paper-tabs.transparent {
+  background-color: transparent;
+  color: $CornflowerBlue;
+  box-shadow: none;
+  height: $tabs-height;
+}
+
+
+paper-tabs.transparent::shadow #selectionBar {
+  background-color: $CornflowerBlue;
+}
+
+paper-tabs.transparent paper-tab::shadow #ink {
+  color: $CornflowerBlue;
+}
+
+.title {
+  width: 100%;
+}
+
+.header-thumbnails {
+  padding: 0;
+}
+

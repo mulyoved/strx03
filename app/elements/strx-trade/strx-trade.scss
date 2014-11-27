@@ -1,0 +1,106 @@
+@import '../../styles/common';
+
+:host {
+  display: block;
+}
+
+.client-area {
+}
+
+.card-content {
+}
+
+.banner {
+  width: $screen-width;
+  height: $screen-width * 175 / 640;
+}
+
+.thumbnails {
+  width: 88px;
+  min-width: 88px;
+  height: 88px;
+  left: 24px;
+  border: 5px solid white;
+  border-radius: $border-radius;
+}
+
+.title {
+  margin: 8px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  text-overflow:    ellipsis;
+  padding-top: 8px;
+  color: #999;
+}
+
+div [horizontal] {
+  margin: 16px;
+}
+
+.text-value {
+  margin: 0px;
+  margin-left: 8px;
+  text-align: left;
+  font-size: 22px;
+  color: #999;
+}
+
+.text-label {
+  margin: 0px;
+  margin-right: 8px;
+  margin-bottom: 4px;
+  text-align: right;
+  font-size: 11px;
+  color: #666;
+  font-weight: normal;
+}
+
+.vertical-text-label {
+  margin: 8px;
+  margin-bottom: 8px;
+  margin-top: 36px;
+  text-align: left;
+  font-size: 11px;
+  color: #666;
+  font-weight: normal;
+}
+
+.description {
+  margin: 8px;
+}
+
+.share-icon {
+  margin-left: 16px;
+  background: white;
+  color: red;
+}
+
+.value-chart {
+  height: (356 * ($screen-width)/657)px;
+  width: $screen-width - 32px;
+}
+
+.buy-button {
+  background: #64DD17;
+  color: #000;
+}
+
+.sell-button {
+  background: #D50000; // A700
+  color: #fff;
+}
+
+.button-bar {
+  padding-top: 24px;
+}
+
+.border-top {
+  padding-top: 16px;
+  border-top: 1px solid #666;
+}
+
+xdiv {
+  border: 1px solid red;
+}

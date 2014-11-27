@@ -1,0 +1,38 @@
+<polymer-element name="sub-page" attributes="pagetitle component">
+  <template>
+    <link rel="stylesheet" href="sub-page.css">
+    <strx-toolbar selected="sub">
+      <div class="title" horizontal justified layout center>
+        <div>
+          {{pagetitle}}
+        </div>
+        <paper-icon-button
+          on-click="{{close}}"
+          id="user-thumbnails"
+          class="header-thumbnails header-user-thumbnails"
+          icon="strx:close">
+        </paper-icon-button>
+      </div>
+
+      <content></content>
+
+    </strx-toolbar>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        pagetitle: 'Title',
+
+        close: function() {
+          console.log('close');
+          document.routerGo({ path: 'decks'});
+        }
+      });
+
+    })();
+  </script>
+
+</polymer-element>

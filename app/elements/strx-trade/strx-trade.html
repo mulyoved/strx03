@@ -1,0 +1,79 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="strx-trade" attributes="card">
+  <template>
+    <link rel="stylesheet" href="strx-trade.css">
+    <div class="client-area">
+      <core-image class="banner"
+                  fade
+                  sizing="contain"
+                  position="top"
+                  src="{{cardinfo.mobile_image}}">
+      </core-image>
+
+      <div horizontal left-justified layout>
+        <core-image class="thumbnails"
+                    fade
+                    src="{{cardinfo.thumbnails}}">
+
+        </core-image>
+        <h2 class="title">{{cardinfo.title}}</h2>
+      </div>
+
+      <div flex self-stretch>
+        <div horizontal layout end>
+          <p class="text-label" flex>RANK</p>
+          <h3 class="text-value" flex>{{cardinfo.rank}}</h3>
+        </div>
+
+        <!--
+        <div horizontal layout end>
+          <p class="text-label" flex>ID</p>
+          <h3 class="text-value" flex>{{cardinfo.id}}</h3>
+        </div>
+        -->
+
+        <div horizontal layout end>
+          <p class="text-label" flex>PRICE</p>
+          <h3 class="text-value" flex>${{cardinfo.price}}</h3>
+        </div>
+
+        <div horizontal layout end>
+          <p class="text-label" flex>VALUE</p>
+          <h3 class="text-value" flex>{{cardinfo.value}}</h3>
+        </div>
+
+        <div horizontal layout end class="border-top">
+          <p class="text-label" flex>AVAILABLE FUNDS</p>
+          <h3 class="text-value" flex>4506</h3>
+        </div>
+
+
+        <div horizontal layout end around-justified class="button-bar">
+          <paper-button class="buy-button" raised on-click="{{ trade }}">BUY</paper-button>
+          <paper-button class="sell-button" raised on-click="{{ trade }}">SELL</paper-button>
+        </div>
+
+      </div>
+    </div>
+  </template>
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        card: -1,
+        cardinfo: null,
+
+        cardChanged: function() {
+          var channelData = document.storage('channelData');
+          this.cardinfo = channelData[this.card];
+          console.log('Load profile for card', this.card, this.cardinfo);
+        }
+
+        // define element prototype here
+      });
+
+    })();
+  </script>
+</polymer-element>

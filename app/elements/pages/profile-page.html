@@ -1,0 +1,39 @@
+<polymer-element name="profile-page">
+  <template>
+    <link rel="stylesheet" href="profile-page.css">
+    <strx-toolbar selected="profile">
+      <div class="title" horizontal justified layout center>
+        <div>
+          Profile
+        </div>
+        <paper-icon-button
+          on-click="{{close}}"
+          id="user-thumbnails"
+          class="header-thumbnails header-user-thumbnails"
+          icon="strx:close">
+        </paper-icon-button>
+      </div>
+      <strx-card-details card="{{ myCard }}"></strx-card-details>
+    </strx-toolbar>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        myCard: 0,
+        domReady: function() {
+          this.myCard = document.storage('myCard');
+        },
+
+        close: function() {
+          console.log('goProfile');
+          document.routerGo({ path: 'decks'});
+        }
+      });
+
+    })();
+  </script>
+
+</polymer-element>
