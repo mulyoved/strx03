@@ -66,7 +66,7 @@
         cardinfo: null,
 
         cardChanged: function() {
-          var channelData = document.storage('channelData');
+          var channelData = window.storage('channelData');
           this.cardinfo = channelData[this.card];
           console.log('Load profile for card', this.card, this.cardinfo);
         }

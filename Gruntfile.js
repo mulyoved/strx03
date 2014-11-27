@@ -291,6 +291,14 @@ module.exports = function (grunt) {
             cwd: 'd:/js/strx/strx02'
           }
         }
+      },
+      androidrun: {
+        command: 'cordova run android',
+        options: {
+          execOptions: {
+            cwd: 'd:/js/strx/strx02'
+          }
+        }
       }
     }
   });
@@ -334,7 +342,8 @@ module.exports = function (grunt) {
     //'usemin',
     //'minifyHtml',
     'copy:cordova',
-    'shell:androidbuild'
+    'shell:androidbuild',
+    'shell:androidrun'
   ]);
 
   grunt.registerTask('default', [

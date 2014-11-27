@@ -24,12 +24,12 @@
       Polymer({
         myCard: 0,
         domReady: function() {
-          this.myCard = document.storage('myCard');
+          this.myCard = window.storage('myCard');
         },
 
         close: function() {
           console.log('goProfile');
-          document.routerGo({ path: 'decks'});
+          window.routerGo({ path: 'decks'});
         }
       });
 
